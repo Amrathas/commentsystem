@@ -1,0 +1,81 @@
+<!-- <p>comment-list works!</p>
+<p>{{commentList  | json}}</p> -->
+
+<!-- <mat-card
+  class="example-card"
+  *ngFor="let comment of commentList; let i = index"
+  [attr.id]="'comment-' + i"
+>
+  <mat-card-header>
+    <mat-card-title-group>
+      <img mat-card-sm-image src="assets/profile-pic.png" width="50px" />
+      <mat-card-title>{{ comment.name }}</mat-card-title>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    {{ comment.message }}
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button color="primary" (click)="editComment(comment)">
+      Edit
+    </button>
+    <button mat-button color="accent" (click)="replyComment(comment)">
+      Reply
+    </button>
+  </mat-card-actions>
+</mat-card> -->
+
+<mat-card class="example-card" *ngFor="let comment of commentList; let i = index">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ comment.name }}</mat-card-title>
+    <mat-card-subtitle>{{ comment.time || "NA" }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ comment.message }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button color="primary" (click)="editComment(comment)">
+      Edit
+    </button>
+    <button mat-button color="accent" (click)="replyComment(comment)">
+      Reply
+    </button>
+  </mat-card-actions>
+
+  <!-- Reply block -->
+  <ng-container *ngIf="comment?.replies?.length > 0">
+    <mat-card class="example-card" *ngFor="let reply of comment.replies; let i = index">
+      <mat-card-header>
+        <!-- <mat-card-title>{{ reply.name }}</mat-card-title>
+        <mat-card-subtitle>{{ reply.time || "NA" }}</mat-card-subtitle>
+        <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title-group>
+          <mat-card-title>{{ reply.name }}</mat-card-title>
+          <mat-card-subtitle>{{ reply.time || "NA" }}</mat-card-subtitle>
+          <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-title-group>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>
+          {{ reply.message }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="primary" (click)="editComment(reply,comment)">
+          Edit
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+  <!-- Reply block -->
+
+  <!-- <mat-card *ngIf="isReply">
+    <app-comment-form
+      (submit)="getComment($event, comment)"
+    ></app-comment-form>
+  </mat-card> -->
+</mat-card>

@@ -1,0 +1,14 @@
+.example-card {
+  max-width: 400px;
+  min-width: 300px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.form
+{
+  padding-left: 45px;
+  overflow: hidden;
+}
+.submit{
+  margin-bottom: 22px;
+}

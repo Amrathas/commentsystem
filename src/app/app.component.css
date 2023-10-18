@@ -1,0 +1,13 @@
+mat-grid-list  {
+    background: lightgray;
+    overflow: hidden;
+    /* overflow: auto; */
+  }
+
+ 
+mat-grid-tile{
+  overflow: auto;
+}
+.comment{
+  padding-left: 34rem;
+}

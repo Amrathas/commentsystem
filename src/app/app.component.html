@@ -1,0 +1,9 @@
+   <mat-grid-list cols="2" >
+    <h1 class="comment">Comment System</h1>
+  <mat-grid-tile>
+    <app-comment-form [commentToEdit]="commentToEdit" [action]="action" [parentComment]="parentComment"
+      (submit)="getComment($event)"></app-comment-form>
+  </mat-grid-tile>
+  <mat-grid-tile><app-comment-list [commentList]="commentList" (edit)="editComment($event, 'Edit')"
+      (reply)="replyComment($event, 'reply')"></app-comment-list></mat-grid-tile>
+</mat-grid-list>

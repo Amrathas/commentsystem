@@ -1,0 +1,35 @@
+
+<mat-card class="example-card">
+<div *ngIf="action === 'reply'">
+  You are replying to
+  <h1>
+    {{parentComment.name}}'s
+  </h1>
+  <h4>
+    {{parentComment.message}}
+  </h4>
+
+</div>
+
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
+ 
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter a Name</mat-label>
+      <input matInput placeholder="Placeholder" formControlName="name">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter a Comment</mat-label>
+      <textarea matInput placeholder="Placeholder" color="white" formControlName="message"></textarea>
+    </mat-form-field>
+  </p>
+  <!-- <mat-form-field>
+        <input matInput formControlName="message" placeholder="Enter Comment">
+      </mat-form-field> -->
+  <button type="submit" [disabled]="!myForm.valid" class="submit" mat-raised-button color="primary">Submit</button>
+
+</form>
+</mat-card>
